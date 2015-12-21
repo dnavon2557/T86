@@ -1,0 +1,133 @@
+body {
+	background: #EEEDDB;
+}
+img#logo{
+	padding: 0 5%;
+	width: auto;
+	height: 100%;
+}
+div#top-bar {
+	display: flex;
+	justify-content:space-around;
+	-webkit-justify-content:space-around;
+	width: 100%;
+	height: 100px;
+	/*text-align: center;*/
+	align-items: flex-end;
+	-webkit-align-items: flex-end;
+	margin-bottom: 5px;
+
+}
+#top-bar a{
+	/*padding: 0 5%;*/
+	font-family: "baskerville";
+	text-decoration: none;
+	font-size: 2em;
+	color: rgba(0,0,0, 0.5);
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, .8);
+	transition: color 0.3s ease-in-out;
+	-webkit-transition: color 0.3s ease-in-out;
+	
+}
+
+
+#top-bar a:hover {
+	color: #000;
+}
+
+div.divider {
+		background-image: linear-gradient(
+		to right,
+		rgba(0, 0, 0, 0), #881D00, rgba(0, 0, 0, 0) );
+		width: 90%;
+		height: 3px;
+		margin:0 auto;
+}
+div.left-divider {
+		background-image: linear-gradient(
+		to right,
+		#881D00, rgba(0, 0, 0, 0) );
+		width: 90%;
+		height: 3px;
+		margin: 3px 0;
+}
+#main-contain{
+	width: 90%;
+	margin: 1% auto;
+	display: flex;
+
+}
+#article {
+	margin: 0 5%;
+}
+h1#headline {
+	font-size: 4em;
+	font-family: "baskerville";
+	font-weight: normal;
+	padding: 0;
+	margin: 0;
+}
+p#body-text{
+	padding: 0;
+	margin: 0;
+}
+
+#cover{
+	margin-left: 5%;	
+	width: 40%;
+	height: 500px;
+	/*background: rgba(235,220,200, .8);*/
+	object-fit: contain;
+	filter:grayscale(100%);
+	-webkit-filter:grayscale(100%);
+	/*align-self: flex-start;*/
+}
+
+@media(max-width: 725px) {
+	#top-bar a{
+		font-size: 1.5em;
+	}
+	div#top-bar {
+		height: 50px;
+	}
+	img#cover{
+		display: none;
+	}
+}
+@media(max-width: 525px) {
+	#top-bar a{
+		font-size: 1.25em;
+	}
+	div#top-bar {
+		height: 25px;
+	}
+	img#cover{
+		display: none;
+	}
+
+}
+@media(max-width: 425px) {
+	#top-bar a{
+		font-size: 1em;
+	}
+	div#top-bar {
+		height: 25px;
+	}
+	img#cover{
+		display: none;
+	}
+	h1#headline{
+		font-size: 2em;
+		text-align: center;
+	}
+	div.left-divider {
+		background-image: linear-gradient(
+		to right,
+		rgba(0, 0, 0, 0), #881D00, rgba(0, 0, 0, 0) );
+		width: 90%;
+		height: 3px;
+		margin:0 auto;
+}
+
+	
+}
