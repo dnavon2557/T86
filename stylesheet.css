@@ -138,7 +138,7 @@ p#body-text{
 
 }
 
-@media(max-width: 725px) {
+@media (max-width: 725px) {
 	#top-bar a{
 		font-size: 1.5em;
 	}
@@ -149,7 +149,7 @@ p#body-text{
 		display: none;
 	}
 }
-@media(max-width: 525px) {
+@media handheld or  (max-width: 525px) {
 	#top-bar a{
 		font-size: 1.25em;
 	}
