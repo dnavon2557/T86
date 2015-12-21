@@ -1,0 +1,26 @@
+{
+  "name": "t86",
+  "version": "1.0.0",
+  "description": "A site for the T86 food community",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dnavon2557/T86.git"
+  },
+  "author": "Daniel Navon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dnavon2557/T86/issues"
+  },
+  "homepage": "https://github.com/dnavon2557/T86#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "body-parser": "^1.14.2",
+    "mongodb": "^2.0.52",
+    "validator": "^4.4.0"
+  },
+  "devDependencies": {}
+}
