@@ -149,7 +149,7 @@ p#body-text{
 		display: none;
 	}
 }
-@media handheld or  (max-width: 525px) {
+@media (max-width: 525px) {
 	#top-bar a{
 		font-size: 1.25em;
 	}
