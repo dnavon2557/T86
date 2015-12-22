@@ -48,8 +48,9 @@ app.post('/addMember', function (request, response) {
 
 	    });
 	    response.send(200);
+	} else {
+		response.send("Bad Data");
 	}
-	response.send("Bad Data");
 });
 
 
