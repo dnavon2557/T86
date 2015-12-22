@@ -20,6 +20,21 @@ div#top-bar {
 	margin-bottom: 5px;
 
 }
+h1,h2,h3 {
+	font-family: "baskerville";
+	font-weight: normal;
+	color: rgba(0, 0, 0, 0.8);
+}
+
+form h1 {
+	margin: 0 auto;
+	text-align: center;
+}
+form input {
+	display: block;
+	margin: 0 auto;
+}
+
 #top-bar a{
 	/*padding: 0 5%;*/
 	font-family: "baskerville";

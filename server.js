@@ -15,4 +15,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
+// landing page
+app.get('/', function (request, response) {
+  response.sendFile(__dirname + "/index.html");
+});
+app.post('/addMember', function (request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    console.log(request.body);
+    response.send(200);
+}
+
+
+
 app.listen(process.env.PORT || 5000); 
