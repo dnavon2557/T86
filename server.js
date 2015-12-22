@@ -25,6 +25,7 @@ app.post('/addMember', function (request, response) {
     var image_url = request.body.member_image_url;
     var name = request.body.member_name;
     var bio = request.body.member_bio;
+    console.log(image_url,name,bio);
     if (image_url != null && image_url != undefined && name != null && name !=undefined && bio!=null && bio != undefined) {
 	    var toInsert = {
 	    	"image_url": image_url,
