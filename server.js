@@ -24,7 +24,7 @@ app.post('/addMember', function (request, response) {
     response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     console.log(request.body);
     response.send(200);
-}
+});
 
 
 
