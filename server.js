@@ -41,6 +41,8 @@ app.post('/addMember', function (request, response) {
 	    			}
 
 	    		});
+	    	} else {
+	    		console.log(error);
 	    	}
 
 	    });
