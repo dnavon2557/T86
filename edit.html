@@ -15,16 +15,17 @@
 	</div>
 	<div class="divider"></div>
 	<h1>Add Members</h1>
-	<form id="Add Members" method="post" action="http://t86.herokuapp.com/addMember">
+	<form id="addMembers" method="post" action="http://t86.herokuapp.com/addMember">
 		<div class="divider"></div>
 		<h3>Enter the URL for an image</h3>
 		<input type="text" name="member_image_url">
 		<h3>Enter the name of the new member</h3>
 		<input type="text" name="member_name">
 		<h3>Enter a short bio for the new member</h3>
-		<textarea name="member_bio"></textarea>
+		
 		<input type="submit" value="Submit">		
 	</form>
+	<textarea name="member_bio" form="addMembers"></textarea>
 
 </body>
 </html>
