@@ -25,26 +25,27 @@ app.post('/addMember', function (request, response) {
     var image_url = request.body.member_image_url;
     var name = request.body.member_name;
     var bio = request.body.member_bio;
-    if (image-url != null && image-url != undefined && name != null && name !=undefined && bio!=null && bio != undefined)
-    var toInsert = {
-    	"image-url": image_url,
-    	"name": name,
-    	"bio": bio
-    }
-    db.collection('members', function (error, coll) {
-    	if (!error) {
-    		coll.insert(toInsert, function (error, success) {
-    			if (error) {
-    				console.log(error);
-    			} else {
-    				response.status(200).send('Success!');
-    			}
+    if (image_url != null && image_url != undefined && name != null && name !=undefined && bio!=null && bio != undefined) {
+	    var toInsert = {
+	    	"image_url": image_url,
+	    	"name": name,
+	    	"bio": bio
+	    }
+	    db.collection('members', function (error, coll) {
+	    	if (!error) {
+	    		coll.insert(toInsert, function (error, success) {
+	    			if (error) {
+	    				console.log(error);
+	    			} else {
+	    				response.status(200).send('Success!');
+	    			}
 
-    		});
-    	}
+	    		});
+	    	}
 
-    });
-    response.send(200);
+	    });
+	    response.send(200);
+	}
 });
 
 
