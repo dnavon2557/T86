@@ -22,7 +22,28 @@ app.get('/', function (request, response) {
 app.post('/addMember', function (request, response) {
 	response.header("Access-Control-Allow-Origin", "*");
     response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    console.log(request.body);
+    var image-url = request.body.member-image-url;
+    var name = request.body.member-name;
+    var bio = request.body.member-bio;
+    if (image-url != null && image-url != undefined && name != null && name !=undefined && bio!=null && bio != undefined)
+    var toInsert = {
+    	"image-url": image-url,
+    	"name": name,
+    	"bio": bio
+    }
+    db.collection('members', function (error, coll) {
+    	if (!error) {
+    		coll.insert(toInsert, function (error, success) {
+    			if (error) {
+    				console.log(error);
+    			} else {
+    				response.status(200).send('Success!');
+    			}
+
+    		});
+    	}
+
+    });
     response.send(200);
 });
 
