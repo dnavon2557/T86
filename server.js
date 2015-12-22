@@ -22,9 +22,9 @@ app.get('/', function (request, response) {
 app.post('/addMember', function (request, response) {
 	response.header("Access-Control-Allow-Origin", "*");
     response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    var image_url = request.body.member-image-url;
-    var name = request.body.member-name;
-    var bio = request.body.member-bio;
+    var image_url = request.body.member_image_url;
+    var name = request.body.member_name;
+    var bio = request.body.member_bio;
     if (image-url != null && image-url != undefined && name != null && name !=undefined && bio!=null && bio != undefined)
     var toInsert = {
     	"image-url": image_url,
