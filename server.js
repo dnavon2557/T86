@@ -54,9 +54,58 @@ app.get('/members', function (request, response) {
 	});
 });
 
+app.post('/addMission', function (request, response) {
+	var mission_statement = request.body.mission_statement;
+	var timestamp = new Date();
+	
+	if (mission_statement!= null && mission_statement != undefined) {
+		var toInsert = {"text": mission_statement, "created_at":timestamp};
+		db.collection('mission_statement', function (error1, coll) {
+			if (!error1) {
+				coll.insert(toInsert, function (error2, success) {
+					if (error2) {
+						console.log(error2);
+						response.send(500);
+					} else {
+						response.send("Success!")
+					}
+				});
+			} else {
+				console.log(error);
+				response.send(500);
+			}
+		}); 
+	} else {
+		response.send("Bad data");
+	}
+});
+
+app.get('/getMission', function (request, response) {
+	db.collection('mission_statement', function (error1, coll) {
+		if (!error1) {
+			coll.find().sort({created_at:-1}).toArray(function (error2, data) {
+				if (!error2) {
+					if (data.length <= 0) {
+						response.send("<p>No statement found</p>");
+					} else {
+						response.send("<p>" +data[0]['text']+ "</p>");
+					}
+				} else {
+					console.log(error2);
+					response.send("<p>Whoops something went wrong</p>");
+				}
+			});
+		} else {
+			console.log(error1);
+			response.send("<p>Whoops something went wrong</p>")
+		}
+	});
+});
+
+
 app.post('/addMember', function (request, response) {
-	response.header("Access-Control-Allow-Origin", "*");
-    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	/*response.header("Access-Control-Allow-Origin", "*");
+    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");*/
     var image_url = request.body.member_image_url;
     var name = request.body.member_name;
     var bio = request.body.member_bio;
