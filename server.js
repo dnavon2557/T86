@@ -19,6 +19,30 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/', function (request, response) {
   response.sendFile(__dirname + "/index.html");
 });
+
+app.get('/members', function (request, response) {
+	var html = "";
+	db.collection('members', function (error, coll) {
+		if (!error) {
+			coll.find().sort({"name":1}).toArray( function (error, results) {
+				if (!error) {
+					//console.log(results);
+					for (var i = 0; i < results.length; i++) {
+						html +=	"<div class='member'>\n<img class = 'bubble' src=" +results[i]['image_url']+ ">\n<h2 class='bubble-header'>" +results[i]['name']+ "</h2>\n</div>";
+					}
+					response.send(html);
+				} else {
+					console.log(error);
+					response.send(500);
+				}
+			});
+		} else {
+			console.log(error);
+			response.send(404);
+		}
+	});
+});
+
 app.post('/addMember', function (request, response) {
 	response.header("Access-Control-Allow-Origin", "*");
     response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -38,7 +62,7 @@ app.post('/addMember', function (request, response) {
 	    			if (error) {
 	    				console.log(error);
 	    			} else {
-	    				response.status(200).send('Success!');
+	    				response.send('Success!');
 	    			}
 
 	    		});
@@ -47,7 +71,6 @@ app.post('/addMember', function (request, response) {
 	    	}
 
 	    });
-	    response.send(200);
 	} else {
 		response.send("Bad Data");
 	}
