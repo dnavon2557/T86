@@ -23,10 +23,10 @@ app.post('/getForms', function (request, response) {
 	console.log(request.body.pass);
 	if (request.body.pass == "cookingupastorm") {
 		var addMemberForm = '<form id="addMembers" method="post" action="/addMember"><h1>Add Members</h1><div class="divider"></div><h3>Enter the URL for an image</h3><input type="text" name="member_image_url"><h3>Enter the name of the new member</h3><input type="text" name="member_name"><h3>Enter a short bio for the new member</h3>	<textarea id="member_bio" name="member_bio" form="addMembers"></textarea><input type="submit" value="Submit"></form>';
-		var addMissionForm = '<form id="addMission" method="post" action="addMission"><h1>Add a Mission Statement</h1> <div class="divider"></div><textarea name="mission_statement" form="addMission"></textarea><input type="submit" value="Submit"></form>';
+		var addMissionForm = '<form id="addMission" method="post" action="addMission"><h1>Add a Mission Statement</h1> <div class="divider"></div><textarea id="mission_statement" name="mission_statement" form="addMission" ></textarea><input type="submit" value="Submit"></form>';
 
 		response.send(addMemberForm + addMissionForm);
-	} else {
+	} else {  
 		response.send("<h1>Sorry wrong password!</h1>");
 	}
 });
@@ -56,6 +56,7 @@ app.get('/members', function (request, response) {
 
 app.post('/addMission', function (request, response) {
 	var mission_statement = request.body.mission_statement;
+	console.log(mission_statement);
 	var timestamp = new Date();
 	
 	if (mission_statement!= null && mission_statement != undefined) {
@@ -86,18 +87,18 @@ app.get('/getMission', function (request, response) {
 			coll.find().sort({created_at:-1}).toArray(function (error2, data) {
 				if (!error2) {
 					if (data.length <= 0) {
-						response.send("<p>No statement found</p>");
+						response.send("This will apear under the about page");
 					} else {
-						response.send("<p>" +data[0]['text']+ "</p>");
+						response.send(data[0]['text']);
 					}
 				} else {
 					console.log(error2);
-					response.send("<p>Whoops something went wrong</p>");
+					response.send("Whoops something went wrong");
 				}
 			});
 		} else {
 			console.log(error1);
-			response.send("<p>Whoops something went wrong</p>")
+			response.send("Whoops something went wrong")
 		}
 	});
 });
