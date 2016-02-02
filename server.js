@@ -31,6 +31,57 @@ app.post('/getForms', function (request, response) {
 	}
 });
 
+
+app.get('/getArticle', function (request, response){
+	db.collection("articles", function (error1, coll) {
+		if (!error1) {
+			coll.find().sort({created_at:-1}).toArray(function (error2, results){
+				if (results.length < 1) {
+					response.send(404);
+				} else {
+					response.send(results[0]);
+				}
+			});
+		} else {
+			console.log(error1);
+			response.send(500);
+		}
+	});
+});
+
+
+app.post('/addArticle', function (request, response) {
+	var article_headline = request.body.article_headline;
+	var article_text = request.body.article_text;
+	var timestamp = new Date();
+	var toInsert = {
+		headline: article_headline,
+		text: article_text,
+		created_at: timestamp
+	};
+
+	db.collection('articles', function (error1, coll) {
+		if (!error1) {
+			coll.insert(toInsert, function (error2, success) {
+				if (error2) {
+					console.log(error2);
+					response.send(500);
+				} else {
+					response.send("Success!");
+				}
+			});
+		} else {
+			console.log(error1); 
+			response.send(500);
+		}
+	});
+});
+
+
+
+
+
+
 app.get('/members', function (request, response) {
 	var html = "";
 	db.collection('members', function (error, coll) {
