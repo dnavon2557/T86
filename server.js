@@ -9,27 +9,26 @@ var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
 	db = databaseConnection;
 });
 
-app.use(express.static(__dirname));
+app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // landing page
-app.get('/', function (request, response) {
-  response.sendFile(__dirname + "/index.html");
-});
-app.post('/getForms', function (request, response) {
-	console.log(request.body.pass);
+
+app.post('/edit.html', function (request, response) {
+
 	if (request.body.pass == "cookingupastorm") {
-		var addMemberForm = '<form id="addMembers" method="post" action="/addMember"><h1>Add Members</h1><div class="divider"></div><h3>Enter the URL for an image</h3><input type="text" name="member_image_url"><h3>Enter the name of the new member</h3><input type="text" name="member_name"><h3>Enter a short bio for the new member</h3>	<textarea id="member_bio" name="member_bio" form="addMembers"></textarea><input type="submit" value="Submit"></form>';
-		var addMissionForm = '<form id="addMission" method="post" action="addMission"><h1>Add a Mission Statement</h1> <div class="divider"></div><textarea id="mission_statement" name="mission_statement" form="addMission" ></textarea><input type="submit" value="Submit"></form>';
-		var addFrontpageForm = '<form id="addArticle" method="post" action="/addArticle"> <h1>Add Frontpage Article</h1> <div class="divider"></div> <h3>Enter a headline for the article</h3> <input type="text" name="article_headline"> <h3>Enter the article</h3><textarea name="article_text" id="article_text"></textarea> <input type="submit" value= "Submit"> </form>';
-		response.send(addMemberForm + addMissionForm);
+		response.sendFile(__dirname + "/private/edit.html")
 	} else {  
-		response.send("<h1>Sorry wrong password!</h1>");
+		response.send("Sorry wrong password");
 	}
 });
+
+app.get('/edit.html', function (request, response) {
+	response.sendFile(__dirname + "/public/login.html");
+})
 
 
 app.get('/getArticle', function (request, response){
