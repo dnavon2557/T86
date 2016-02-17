@@ -1,15 +1,21 @@
 body {
 	/*background: #EEEDDB; old color*/
-	background: #f5f3e2;
+	background: #000;
 	padding: 0;
 	margin: 0;
 }
+div#header {
+	background: #f5f3e2;
+	padding-bottom: 1%;
+}
+
 img#logo{
 	padding: 0 5%;
 	width: auto;
 	height: 100%;
 }
 div#top-bar {
+	background: #f5f3e2;
 	display: flex;
 	justify-content:space-around;
 	-webkit-justify-content:space-around;
@@ -24,7 +30,8 @@ div#top-bar {
 h1,h2,h3 {
 	font-family: "baskerville";
 	font-weight: normal;
-	color: rgba(0, 0, 0, 0.8);
+	/*color: rgba(0, 0, 0, 0.8);*/
+	color: #881D00;
 }
 
 form h1,h2,h3 {
@@ -72,30 +79,33 @@ input[type="submit"] {
 form div.divider {
 	margin: 1% auto;
 	width: 50%;
+
 }
 #top-bar a{
 	/*padding: 0 5%;*/
 	font-family: "baskerville";
 	text-decoration: none;
 	font-size: 2em;
-	color: rgba(0,0,0, 0.5);
+	color: rgba(0,0,0, 0.8);
 	text-shadow: 0px 1px 0px rgba(255, 255, 255, .8);
-	transition: color 0.3s ease-in-out;
-	-webkit-transition: color 0.3s ease-in-out;
+	transition: color 0.2s ease-in-out;
+	-webkit-transition: color 0.2s ease-in-out;
 	
 }
 
 
 #top-bar a:hover {
-	color: #881D00;
+	/*color: #881D00; old color*/
+	color: #992100;
 }
 
 div.divider {
+	
 		background-image: linear-gradient(
 		to right,
 		rgba(0, 0, 0, 0), #881D00, rgba(0, 0, 0, 0) );
 		width: 90%;
-		height: 3px;
+		height: 2px;
 		margin:0 auto;
 }
 div.left-divider {
@@ -103,24 +113,67 @@ div.left-divider {
 		to right,
 		#881D00, rgba(0, 0, 0, 0) );
 		width: 90%;
-		height: 3px;
+		height: 2px;
 		margin: 3px 0;
 }
 #main-contain{
-	width: 90%;
+	width: 100%;
 	margin: 1% auto;
 	display: flex;
-
+	z-index: 0;
+}
+#main-contain:before {
+	content: "";
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: -2;
+	display: block;
+	height: 100%;
+	width: 100%; 
+	background-image: url("images/Wok-Cooking.jpg");
+	background-repeat: repeat-x;
+	background-size: auto 100%;
+	-moz-background-size: auto 100%;
+	background-position: center center;
+	-moz-background-position: center;
+	-webkit-background-position: center;
+	-o-background-position: center;
+	filter: grayscale(100%);
+	filter: blur(7px);
+}
+#main-contain:after {
+	content: "";
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: -1;
+	display: block;
+	height: 90%;
+	width:  90%; 
+	margin: 0 auto;
+	background-image: url("images/Wok-Cooking.jpg");
+	background-repeat:none; 
+	background-size: auto 100%;
+	-moz-background-size: auto 100%;
+	background-position: center center;
+	-moz-background-position: center center;
+	-webkit-background-position: center;
+	-o-background-position: center;
+	filter:none; 
 }
 #article {
+	filter: none;
 	margin: 0 5%;
+	padding: 0px 5%;
 }
 h1#headline {
 	font-size: 4em;
 	font-family: "baskerville";
 	font-weight: normal;
-	padding: 0;
-	margin: 0;
+	padding: 2.5% 2.5%;
+	margin: 2.5% 0;
+	background-color: rgba(0, 0, 0, 0.6);
 }
 div#about-box, div#team {
 	margin: 1.5% auto;
@@ -147,17 +200,20 @@ div#about-box div.divider, div#team div.divider {
 
 
 p#body-text{
-	padding: 0;
+	padding: 2.5%;
 	margin: 0;
+	color: rgba(256,256,256, 0.6);
+	background-color: rgba(0, 0, 0, 0.6);
 }
 
 #cover{
+	display: none;
 	margin-left: 5%;	
-	width: 40%;
-	height: 500px;
+	width: 80%;
+	height: 100%;
 	/*background: rgba(235,220,200, .8);*/
 	object-fit: contain;
-	filter:grayscale(100%);
+	filter: none;
 	-webkit-filter:grayscale(100%);
 	/*align-self: flex-start;*/
 }
