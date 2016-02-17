@@ -33,6 +33,12 @@ h1,h2,h3 {
 	/*color: rgba(0, 0, 0, 0.8);*/
 	color: #881D00;
 }
+#forms {
+	width : 80%;
+	height: auto;
+	margin: 0px auto;
+	background-color: rgba(256, 256, 256, 0.15);
+}
 
 form h1,h2,h3 {
 	margin: 0 auto;
@@ -42,7 +48,7 @@ form input {
 	display: block;
 	margin: 0 auto;
 	border: none;
-	border-radius: 50px;
+	border-radius: 5px;
 	height: 25px;
 	width: 200px;
 	font-size: 15px;
@@ -56,8 +62,9 @@ form textarea {
 	width: 80%;
 	height: 30%;
 	border: none;
-	border-radius: 50px;
-	padding: 25px;
+	border-radius: 10px;
+	padding: 15px;
+	font-family: "baskerville", "heveltica", sans-serif;
 }
 form textarea#member_bio {
 	height: 200px;
@@ -72,7 +79,7 @@ input[type="submit"] {
 	background-color: #881D00;
 	color: #fff;
 	font-family: "baskerville";
-	border-radius: 50px;
+	border-radius: 1px;
 	border: none;
 }
 
@@ -139,8 +146,7 @@ div.left-divider {
 	-moz-background-position: center;
 	-webkit-background-position: center;
 	-o-background-position: center;
-	filter: grayscale(100%);
-	filter: blur(7px);
+	filter: blur(7px) grayscale(30%);
 }
 #main-contain:after {
 	content: "";
@@ -175,12 +181,40 @@ h1#headline {
 	margin: 2.5% 0;
 	background-color: rgba(0, 0, 0, 0.6);
 }
+div#about-contain {
+	z-index: 0;
+	padding: 0;
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+div#about-contain:before {
+	position: absolute;
+	display: block;
+	margin: 0% auto;
+	padding:  0;
+	left: 0;
+	right: 0;
+	z-index: -2;
+	content: ""; 
+	width: 100%;
+	height: 100%;
+	background-image: url("images/about-cover.jpg");
+	background-position: center;
+	background-size: auto 100%;
+}
 div#about-box, div#team {
 	margin: 1.5% auto;
 	width: 90%;
+	background-color: rgba(0, 0, 0, 0.7);
 }
 div#about-box p {
 	margin: 0 2.5%;
+	font-family: "Raleway","Helvetica", sans-serif;
+	font-size: 1.5em;
+	text-align: center;
+	color: rgba(256,256,256, 0.6);
+	padding-bottom: 1.5% ;
 }
 div#about-box h1, div#team h1 {
 	font-size: 4em;
@@ -189,7 +223,7 @@ div#about-box h1, div#team h1 {
 	padding: 0;
 	margin: 0;
 	text-align: center;
-	color: rgba(0, 0, 0, 0.8);
+	color: #881D00;
 }
 
 div#about-box div.divider, div#team div.divider {
