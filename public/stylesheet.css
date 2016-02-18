@@ -181,6 +181,16 @@ h1#headline {
 	margin: 2.5% 0;
 	background-color: rgba(0, 0, 0, 0.6);
 }
+div#event-contain:before {
+	background-image: url("images/next-event.jpg");
+	filter: blur(4px) contrast(120%);
+}
+.contain h1 {
+	padding: 2%;
+	background-color: rgba(0, 0 ,0, 0.6);
+	text-align:center;
+}
+
 div#about-contain {
 	z-index: 0;
 	padding: 0;
@@ -373,9 +383,6 @@ p#body-text{
 	}
 	#contact-info {
 		width: 95%!important;
-	}
-	.dots {
-		display: none;
 	}
 	#contact-info ul li {
 		font-size: 1.1em;
