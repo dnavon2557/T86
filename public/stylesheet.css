@@ -203,6 +203,56 @@ div#about-contain:before {
 	background-position: center;
 	background-size: auto 100%;
 }
+div#contact-info {
+	width: 75%;
+	margin: 1.5% auto;
+	background-color: rgba(0, 0, 0, 0.72);
+	padding: 0.5%;
+}
+#contact-info ul {
+	margin: 2.5%;
+	font-family: "Raleway","Helvetica", sans-serif;
+	font-size: 1.4em;
+	color: rgba(256,256,256, 0.6);
+	padding-bottom: 1.5% ;
+	text-align: center;
+}
+
+ul li a {
+	text-decoration: none;
+	color: #881D00;
+}
+
+div.contain {
+	z-index: 0;
+	padding: 0;
+	position: fixed;
+	left: 0;
+	right: 0;
+	margin: auto 0;
+	width: 100%;
+	height: 100%;
+}
+div.contain:before {
+	position: absolute;
+	display: block;
+	margin: 0% auto;
+	padding:  0;
+	left: 0;
+	right: 0;
+	z-index: -2;
+	content: ""; 
+	width: 100%;
+	height: 100%;
+}
+div#contact-contain:before {
+	background-image: url("images/contact-cover.jpg");
+	background-position: center;
+	background-size: auto 100%;
+	filter: blur(1px) grayscale(0%) contrast(100%);
+}
+
+
 div#about-box, div#team {
 	margin: 1.5% auto;
 	width: 90%;
@@ -304,6 +354,12 @@ p#body-text{
 	img#cover{
 		display: none;
 	}
+	#contact-info {
+		width: 80% !important;
+	}
+	#contact-info ul  {
+		font-size: 1.1em;
+	}
 }
 @media (max-width: 525px) {
 	#top-bar a{
@@ -315,7 +371,16 @@ p#body-text{
 	img#cover{
 		display: none;
 	}
-
+	#contact-info {
+		width: 95%!important;
+	}
+	.dots {
+		display: none;
+	}
+	#contact-info ul li {
+		font-size: 1.1em;
+		margin-top: 50px;
+	}
 }
 @media(max-width: 425px) {
 	#top-bar a{
