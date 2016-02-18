@@ -96,8 +96,9 @@ form div.divider {
 	color: rgba(0,0,0, 0.8);
 	text-shadow: 0px 1px 0px rgba(255, 255, 255, .8);
 	transition: color 0.2s ease-in-out;
+	-moz-transition: color 0.2s ease-in-out;
 	-webkit-transition: color 0.2s ease-in-out;
-	
+	-o-transition: color 0.2s ease-in-out;
 }
 
 
@@ -124,52 +125,17 @@ div.left-divider {
 		margin: 3px 0;
 }
 #main-contain{
-	width: 100%;
-	margin: 1% auto;
+	margin: 0.0% auto;
 	display: flex;
-	z-index: 0;
 }
 #main-contain:before {
-	content: "";
-	position: fixed;
-	left: 0;
-	right: 0;
-	z-index: -2;
-	display: block;
-	height: 100%;
-	width: 100%; 
 	background-image: url("images/Wok-Cooking.jpg");
-	background-repeat: repeat-x;
-	background-size: auto 100%;
-	-moz-background-size: auto 100%;
-	background-position: center center;
-	-moz-background-position: center;
-	-webkit-background-position: center;
-	-o-background-position: center;
-	filter: blur(7px) grayscale(30%);
+	filter: blur(5px) grayscale(30%);
 }
 #main-contain:after {
-	content: "";
-	position: fixed;
-	left: 0;
-	right: 0;
-	z-index: -1;
-	display: block;
-	height: 90%;
-	width:  90%; 
-	margin: 0 auto;
 	background-image: url("images/Wok-Cooking.jpg");
-	background-repeat:none; 
-	background-size: auto 100%;
-	-moz-background-size: auto 100%;
-	background-position: center center;
-	-moz-background-position: center center;
-	-webkit-background-position: center;
-	-o-background-position: center;
-	filter:none; 
 }
 #article {
-	filter: none;
 	margin: 0 5%;
 	padding: 0px 5%;
 }
@@ -185,7 +151,7 @@ div#event-contain:before {
 	background-image: url("images/next-event.jpg");
 	filter: blur(4px) contrast(120%);
 }
-.contain h1 {
+.contain h1#event-head{
 	padding: 2%;
 	background-color: rgba(0, 0 ,0, 0.6);
 	text-align:center;
@@ -211,7 +177,13 @@ div#about-contain:before {
 	height: 100%;
 	background-image: url("images/about-cover.jpg");
 	background-position: center;
+	-moz-background-position: center;
+	-webkit-background-position: center;
+	-o-background-position: center;
 	background-size: auto 100%;
+	-moz-background-size: auto 100%;
+	-webkit-background-size: auto 100%;
+	-o-background-size: auto 100%;
 }
 div#contact-info {
 	width: 75%;
@@ -254,12 +226,42 @@ div.contain:before {
 	content: ""; 
 	width: 100%;
 	height: 100%;
+	background-repeat: repeat-x;
+	background-size: auto 100%;
+	-moz-background-size: auto 100%;
+	background-position: center center;
+	-moz-background-position: center;
+	-webkit-background-position: center;
+	-o-background-position: center;
+}
+div.contain:after {
+	content: "";
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: -1;
+	display: block;
+	height: 90%;
+	width:  90%; 
+	margin: 0 auto;
+	background-repeat:none; 
+	background-size: auto 100%;
+	-moz-background-size: auto 100%;
+	-webkit-background-size: auto 100%;
+	-o-background-size: auto 100%;
+	background-position: center center;
+	-moz-background-position: center center;
+	-webkit-background-position: center center;
+	-o-background-position: center center;
 }
 div#contact-contain:before {
 	background-image: url("images/contact-cover.jpg");
 	background-position: center;
 	background-size: auto 100%;
 	filter: blur(1px) grayscale(0%) contrast(100%);
+	-moz-filter: blur(1px) grayscale(0%) contrast(100%);
+	-webkit-filter: blur(1px) grayscale(0%) contrast(100%);
+	-o-filter: blur(1px) grayscale(0%) contrast(100%);
 }
 
 
@@ -300,17 +302,6 @@ p#body-text{
 	background-color: rgba(0, 0, 0, 0.6);
 }
 
-#cover{
-	display: none;
-	margin-left: 5%;	
-	width: 80%;
-	height: 100%;
-	/*background: rgba(235,220,200, .8);*/
-	object-fit: contain;
-	filter: none;
-	-webkit-filter:grayscale(100%);
-	/*align-self: flex-start;*/
-}
 
 #member-bubbles {
 	margin: 0 auto;
@@ -335,14 +326,20 @@ p#body-text{
 	width: 100%;
 	border-radius: 100%;
 	filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
 	-webkit-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
 	transition: filter 0.25s ease-in-out ;
+	-moz-transition: filter 0.25s ease-in-out ;
 	-webkit-transition: filter 0.25s ease-in-out ;
+	-o-transition: filter 0.25s ease-in-out ;
 	margin: 0 auto;
 }
 .bubble:hover {
 	filter:none;
-	-webkit-filter: none;
+	-moz-filter:none;
+	-webkit-filter:none;
+	-o-filter:none;
 }
 .bubble-header {
 	font-size: 3em;
